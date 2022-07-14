@@ -56,24 +56,21 @@ body {
   padding: 15px;
   box-sizing: border-box;
 }
-
-.memory--menu-bar .inner {
-  display:table-cell;
-  vertical-align:middle;
-}
 .memory--menu-bar .left {
+  position: relative;
   text-align: left;
-  float:left;
   width:50%;
+  height: 100%;
 }
 .memory--menu-bar .right {
+  position: relative;
   text-align: right;
-  float:right;
   width:50%;
+  height: 100%;
 }
 .logo {
-  width: 180px;
-  height: auto;
+  height: 100%;
+  width: auto;
 }
 #memory--settings-icon {
   height: 24px;

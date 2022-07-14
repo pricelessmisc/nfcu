@@ -81,6 +81,11 @@
           'Score: ' + score + ' / 100';
 
       document.getElementById("memory--end-game-modal").classList.toggle('show');
+
+      // set time out for 5 seconds and then click the settings icon to reset the game
+      setTimeout(function () {
+        document.getElementById('memory--settings-icon').click();
+      } , 5000);
     }
 
     else if (status.code == 2 ) {
