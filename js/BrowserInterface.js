@@ -38,7 +38,7 @@
 
     // var selectWidget = document.getElementById("memory--settings-grid").valueOf();
     // var grid = selectWidget.options[selectWidget.selectedIndex].value;
-    var grid = "2x3";
+    var grid = "2x3"; // Manuall set for now as we have removed the options to choose.
     
     var gridValues = grid.split('x');
     var cards = $.initialize(Number(gridValues[0]), Number(gridValues[1]), imagesAvailable);
@@ -60,7 +60,6 @@
     event.preventDefault();
 
     var status = $.play(this.index);
-    console.log(status);
 
     if (status.code != 0 ) {
       this.classList.toggle('clicked');
@@ -78,6 +77,12 @@
       var score = parseInt((($.attempts - $.mistakes) / $.attempts) * 100, 10);
       var message = getEndGameMessage(score);
 
+      party.confetti(document.querySelector("body"), {
+        count: party.variation.range(60, 80),
+        spread: party.variation.range(50, 100),
+        size: party.variation.range(1.5, 3),
+      });
+
       document.getElementById('memory--end-game-message').textContent = message;
       document.getElementById('memory--end-game-score').textContent =
           'Score: ' + score + ' / 100';
@@ -92,7 +97,13 @@
 
     else if (status.code == 2 ) {
       // Add in a condition for when the cards match to display the message
-      // TODO change this to a colorful explosion or something?
+
+      var childNodes = document.getElementById('memory--cards').childNodes;
+      
+      // Add the party sparkles to cards that match
+      party.sparkles(childNodes[status.args[0]]);
+      party.sparkles(childNodes[status.args[1]]);
+
       var message = getMatchMessage();
       document.getElementById('memory--end-game-message').textContent = message;
 

@@ -231,6 +231,7 @@ var MemoryGame = {
             else {
               status.code = 2,
               status.message = 'Match.';
+              status.args = cardSelection;
             }
           }
           cardSelection = [];
