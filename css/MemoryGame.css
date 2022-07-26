@@ -1,12 +1,20 @@
+/**
+ * Brand Colors
+ * Primary Color: #0F3D70
+ * Secondary Color: #ED780F
+ * Tertiary Color: #5090CD
+ **/
+
 html {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
+
 body {
-  margin:0;
-  padding:0;
-  width:100%;
-  height:100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .modal {
@@ -17,31 +25,33 @@ body {
   z-index: 3;
   width: 100%;
   visibility: hidden;
-  opacity:0;
-  -webkit-transition:opacity 0.4s linear;
-  -moz-transition:opacity 0.4s linear;
-  -ms-transition:opacity 0.4s linear;
-  -o-transition:opacity 0.4s linear;
-  transition:opacity 0.4s linear;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s linear;
+  -moz-transition: opacity 0.4s linear;
+  -ms-transition: opacity 0.4s linear;
+  -o-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear;
 }
+
 .modal.show {
   visibility: visible;
-  opacity:1;
+  opacity: 1;
 }
 
 .valign-table {
   display: table;
   table-layout: fixed;
 }
+
 .valign-cell {
   display: table-cell;
   vertical-align: middle;
 }
 
 #memory--app-container {
-  background-color: #0061a8;
-  width:100%;
-  height:90%;
+  background-color: #0F3D70;
+  width: 100%;
+  height: 90%;
 }
 
 .memory--menu-bar {
@@ -50,98 +60,126 @@ body {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  width:100%;
+  width: 100%;
   background-color: #222;
-  height:10%;
+  height: 10%;
   padding: 15px;
   box-sizing: border-box;
 }
+
 .memory--menu-bar .left {
   position: relative;
   text-align: left;
-  width:50%;
+  width: 50%;
   height: 100%;
 }
+
 .memory--menu-bar .right {
   position: relative;
   text-align: right;
-  width:50%;
+  width: 50%;
   height: 100%;
 }
+
 .logo {
   height: 100%;
   width: auto;
 }
+
 #memory--settings-icon {
   height: 24px;
   display: block;
-  padding:4px 8px;
+  padding: 4px 8px;
   float: right;
 }
 
 #memory--end-game-modal .wrapper {
-  background-color: rgba(0, 0, 0, .86);
+  background-color: #0F3D70;
   text-align: center;
-  color:#ccc;
-  padding:8px 0;
+  color: #ccc;
+  padding: 8px 0;
 }
+
 #memory--end-game-modal h2,
 #memory--end-game-modal h3 {
-  margin:0;
+  margin: 0;
   margin-bottom: 4px;
 }
 
 #memory--settings-modal {
-  background-color: rgba(0, 0, 0, .86);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
   z-index: 4;
+  background: #0F3D70;
 }
+
+.logo__start {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  max-width: 0 auto;
+  margin: 0 0 75px;
+}
+
 #memory--settings-modal form {
-  min-width:240px;
-  width:50%;
-  margin:0 auto;
   text-align: center;
-  color:#ccc;
+  color: #fff;
 }
 
 .memory--settings-label {
-  margin:8px 0;
+  margin: 8px 0;
 }
 
-#memory--settings-grid,
-#memory--settings-reset {
-  width:100%;
-  margin-bottom:16px;
-  font-size:18px;
-  background:transparent;
-  color:#ccc;
-  height:50px;
+#memory--settings-grid {
+  width: 100%;
+  margin-bottom: 16px;
+  font-size: 18px;
+  background: transparent;
+  color: #fff;
+  height: 50px;
   text-align: center;
 }
 
 #memory--settings-grid option {
-  padding-top:5px;
-  padding-bottom:5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #memory--settings-reset {
-  border-radius:5px;
-  border:2px solid #ccc;
+  padding: 12px 30px;
+  font-size: 36px;
+  border-radius: 5px;
+  border: 2px solid #fff;
   cursor: pointer;
+  color: #fff;
+  background: transparent;
+  box-sizing: border-box;
+  transition: all 300ms;
+}
+
+#memory--settings-reset:hover {
+  background: #fff;
+  color: #0F3D70;
 }
 
 #memory--cards {
-  margin:0 auto;
-  padding:0;
-  height:100%;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
   list-style-type: none;
   list-style-image: none;
-  position:relative;
+  position: relative;
 }
+
 /* entire container, keeps perspective */
 .flip-container {
   -webkit-perspective: 1000px;
   perspective: 1000px;
-  float:left;
+  float: left;
 }
 
 /* flip the pane when clicked */
@@ -152,6 +190,7 @@ body {
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
+
 .flip-container.clicked .back {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
@@ -162,9 +201,9 @@ body {
 
 /* flip speed goes here */
 .flipper {
-  width:90%;
-  height:90%;
-  margin:0% auto;
+  width: 90%;
+  height: 90%;
+  margin: 0% auto;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
@@ -174,14 +213,15 @@ body {
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
   position: relative;
-  top:5%;
-  bottom:5%;
+  top: 5%;
+  bottom: 5%;
 }
 
 /* hide back of pane during swap */
-.front, .back {
-  width:100%;
-  height:100%;
+.front,
+.back {
+  width: 100%;
+  height: 100%;
   display: block;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -210,7 +250,7 @@ body {
   background-color: #e12d00;
   border-radius: 5%;
   background-image: url(../images/card.svg);
-  background-position:50% 50%;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -225,7 +265,7 @@ body {
   transform: rotateY(-180deg);
   background-color: #fff;
   border-radius: 5%;
-  background-position:50% 50%;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -233,45 +273,59 @@ body {
 .back.card-1 {
   background-image: url(../images/fruits/apple.jpg);
 }
+
 .back.card-2 {
   background-image: url(../images/fruits/fig.jpg);
 }
+
 .back.card-3 {
   background-image: url(../images/fruits/grape.jpg);
 }
+
 .back.card-4 {
   background-image: url(../images/fruits/kiwi.jpg);
 }
+
 .back.card-5 {
   background-image: url(../images/fruits/lemon.jpg);
 }
+
 .back.card-6 {
   background-image: url(../images/fruits/lime.jpg);
 }
+
 .back.card-7 {
   background-image: url(../images/fruits/mango.jpg);
 }
+
 .back.card-8 {
   background-image: url(../images/fruits/melon.jpg);
 }
+
 .back.card-9 {
   background-image: url(../images/fruits/orange.jpg);
 }
+
 .back.card-10 {
   background-image: url(../images/fruits/peach.jpg);
 }
+
 .back.card-11 {
   background-image: url(../images/fruits/pear.jpg);
 }
+
 .back.card-12 {
   background-image: url(../images/fruits/pinapple.jpg);
 }
+
 .back.card-13 {
   background-image: url(../images/fruits/plum.jpg);
 }
+
 .back.card-14 {
   background-image: url(../images/fruits/raspberry.jpg);
 }
+
 .back.card-15 {
   background-image: url(../images/fruits/strawberry.jpg);
 }

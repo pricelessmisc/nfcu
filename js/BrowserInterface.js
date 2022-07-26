@@ -29,15 +29,17 @@
     event.preventDefault();
     modal.classList.toggle('show');
   };
-  settings.addEventListener('click', handleOpenSettings);
+  settings.addEventListener('click', handleOpenSettings);  
 
   // Handle settings form submission
   var reset = document.getElementById('memory--settings-reset');
   var handleSettingsSubmission = function (event) {
     event.preventDefault();
 
-    var selectWidget = document.getElementById("memory--settings-grid").valueOf();
-    var grid = selectWidget.options[selectWidget.selectedIndex].value;
+    // var selectWidget = document.getElementById("memory--settings-grid").valueOf();
+    // var grid = selectWidget.options[selectWidget.selectedIndex].value;
+    var grid = "2x3";
+    
     var gridValues = grid.split('x');
     var cards = $.initialize(Number(gridValues[0]), Number(gridValues[1]), imagesAvailable);
 
