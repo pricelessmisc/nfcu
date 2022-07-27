@@ -78,9 +78,10 @@
       var message = getEndGameMessage(score);
 
       party.confetti(document.querySelector("body"), {
-        count: party.variation.range(60, 80),
+        count: party.variation.range(100, 150),
         spread: party.variation.range(50, 100),
         size: party.variation.range(1.5, 3),
+        color: [party.Color.fromHex("#0F3D70"), party.Color.fromHex("#000000"), party.Color.fromHex("#ffffff"), party.Color.fromHex("#cccccc")],
       });
 
       document.getElementById('memory--end-game-message').textContent = message;
