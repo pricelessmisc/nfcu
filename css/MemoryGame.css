@@ -5,6 +5,39 @@
  * Tertiary Color: #5090CD
  **/
 
+@font-face {
+    font-family: 'Gotham-Black';
+    src: url('../fonts/gotham-black-webfont.eot');
+    src: url('../fonts/gotham-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham-black-webfont.woff') format('woff'),
+         url('../fonts/gotham-black-webfont.ttf') format('truetype'),
+         url('../fonts/gotham-black-webfont.svg#GothamBlackRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham-Medium';
+    src: url('../fonts/gotham-medium-webfont.eot');
+    src: url('../fonts/gotham-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham-medium-webfont.woff') format('woff'),
+         url('../fonts/gotham-medium-webfont.ttf') format('truetype'),
+         url('../fonts/gotham-medium-webfont.svg#GothamMediumRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham-Light';
+    src: url('../fonts/gotham-light-webfont.eot');
+    src: url('../fonts/gotham-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gotham-light-webfont.woff') format('woff'),
+         url('../fonts/gotham-light-webfont.ttf') format('truetype'),
+         url('../fonts/gotham-light-webfont.svg#GothamLightRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
   width: 100%;
   height: 100%;
@@ -15,6 +48,25 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: "Gotham-Light", sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Gotham-Black", sans-serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+sup {
+  font-size: 0.5em;
+  line-height: 1em;
 }
 
 .modal {
@@ -94,16 +146,99 @@ body {
 }
 
 #memory--end-game-modal .wrapper {
-  background-color: #0F3D70;
+  display: block;
+  position: relative;
+  background-color: #fff;
   text-align: center;
-  color: #ccc;
-  padding: 8px 0;
+  color: #0F3D70;
+  padding: 0;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 750px;
+  border: 3px solid #0F3D70;
+  border-radius: 20px;
+  overflow:hidden;
+}
+
+#memory--end-game-modal .wrapper .memory-modal {
+  display: block;
+  background: #fff;
+}
+
+#memory--end-game-modal .wrapper .memory-modal__content {
+  display: block;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+#memory--end-game-modal.end .wrapper .memory-modal__content {
+  padding: 30px 30px 80px;
+}
+
+#memory--end-game-modal .wrapper .memory-modal__title {
+  display: block;
+  margin: 0 0 20px 0;
+} 
+
+#memory--end-game-modal .wrapper .memory-modal__content .memory-modal__text {
+  margin: 0 0 15px;
+  font-family: "Gotham-Medium", sans-serif;
+  font-size: 1.2em;
+}
+
+#memory--end-game-modal .wrapper .memory-modal__content .memory-modal__list {
+  font-family: "Gotham-Light", sans-serif;
+  text-align: left;
+}
+
+#memory--end-game-modal .wrapper .memory-modal__content .memory-modal__list-item {
+  margin: 0 0 8px;
+}
+
+#memory--end-game-modal .wrapper .memory-modal__content .memory-modal__small-text {
+  font-size: 0.8em;
+  text-align: left;
+}
+
+#memory--end-game-modal .wrapper .memory-modal.auto {
+  background: url('../images/nfcu/auto.jpg' ) no-repeat center center;
+  background-size: cover;
+}
+
+#memory--end-game-modal .wrapper .memory-modal.creditcard {
+  background: url('../images/nfcu/creditcard.jpg' ) no-repeat center center;
+  background-size: cover;
+}
+
+#memory--end-game-modal .wrapper .memory-modal.makingcents {
+  background: url('../images/nfcu/making.jpg' ) no-repeat center center;
+  background-size: cover;
+}
+
+#memory--end-game-modal .wrapper .memory-modal.mobile {
+  background: url('../images/nfcu/mobile.jpg' ) no-repeat center center;
+  background-size: cover;
 }
 
 #memory--end-game-modal h2,
 #memory--end-game-modal h3 {
   margin: 0;
-  margin-bottom: 4px;
+}
+
+#memory--end-game-modal h3#memory--end-game-score {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  padding: 0;
+  transform: translate(-50%, 0);
+  color: #ED780F;
+  font-size: 2em;
+  line-height: 1;
+}
+
+#memory--end-game-modal h3#memory--end-game-score.show {
+  display: block;
 }
 
 #memory--settings-modal {
@@ -270,7 +405,7 @@ body {
   background-size: cover;
 }
 
-.back.card-1 {
+/* .back.card-1 {
   background-image: url(../images/fruits/apple.jpg);
 }
 
@@ -328,7 +463,7 @@ body {
 
 .back.card-15 {
   background-image: url(../images/fruits/strawberry.jpg);
-}
+} */
 
 /** Matching Cards **/
 /**
@@ -345,3 +480,19 @@ body {
  * }
  *
  */
+
+.back.card-1 {
+  background-image: url(../images/nfcu/auto.jpg);
+}
+
+.back.card-2 {
+  background-image: url(../images/nfcu/creditcard.jpg);
+}
+
+.back.card-3 {
+  background-image: url(../images/nfcu/making.jpg);
+}
+
+.back.card-4 {
+  background-image: url(../images/nfcu/mobile.jpg);
+}

@@ -227,6 +227,7 @@ var MemoryGame = {
               status.code = 4,
               status.message = 'GAME OVER! Attempts: ' + this.attempts +
                   ', Mistakes: ' + this.mistakes;
+              status.args = cardSelection;
             }
             else {
               status.code = 2,
