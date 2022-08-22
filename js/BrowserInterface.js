@@ -77,11 +77,13 @@
       var score = parseInt((($.attempts - $.mistakes) / $.attempts) * 100, 10);
       var message = getEndGameMessage(score);
 
+      party.settings.gravity = 400;
       party.confetti(document.querySelector("body"), {
-        count: party.variation.range(100, 150),
+        count: party.variation.range(800, 1000),
         spread: party.variation.range(50, 100),
-        size: party.variation.range(1.5, 3),
+        size: party.variation.range(3, 5),
         color: [party.Color.fromHex("#0F3D70"), party.Color.fromHex("#000000"), party.Color.fromHex("#ffffff"), party.Color.fromHex("#cccccc")],
+        speed: 600,
       });
 
       document.getElementById('memory--end-game-message').textContent = message;
@@ -93,7 +95,7 @@
       // set time out for 5 seconds and then click the settings icon to reset the game
       setTimeout(function () {
         document.getElementById('memory--settings-icon').click();
-      } , 5000);
+      } , 10000);
     }
 
     else if (status.code == 2 ) {
@@ -102,8 +104,12 @@
       var childNodes = document.getElementById('memory--cards').childNodes;
       
       // Add the party sparkles to cards that match
-      party.sparkles(childNodes[status.args[0]]);
-      party.sparkles(childNodes[status.args[1]]);
+      party.sparkles(childNodes[status.args[0]], {
+        size: party.variation.range(3, 5),
+      });
+      party.sparkles(childNodes[status.args[1]], {
+        size: party.variation.range(3, 5),
+      });
 
       var message = getMatchMessage();
       document.getElementById('memory--end-game-message').textContent = message;
