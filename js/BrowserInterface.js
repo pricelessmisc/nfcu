@@ -79,9 +79,7 @@
         childNodes[status.args[0]].classList.remove('clicked');
         childNodes[status.args[1]].classList.remove('clicked');
       }.bind(status), nonMatchingCardTime);
-    }
-
-    else if (status.code == 2 || status.code == 4) {
+    } else if (status.code == 2 || status.code == 4) {
       // Add in a condition for when the cards match to display the message
 
       var childNodes = document.getElementById('memory--cards').childNodes;
@@ -91,56 +89,71 @@
 
       document.getElementById('memory--end-game-message').innerHTML = message;
 
+      // Add the party sparkles to cards that match
+      party.sparkles(childNodes[status.args[0]], {
+        size: party.variation.range(3, 5),
+      });
+      party.sparkles(childNodes[status.args[1]], {
+        size: party.variation.range(3, 5),
+      });
+
       // If its a win starting sequence
       if (status.code == 4) {
 
-        party.settings.gravity = 400;
-        party.confetti(document.querySelector("body"), {
-          count: party.variation.range(800, 1000),
-          spread: party.variation.range(50, 100),
-          size: party.variation.range(3, 5),
-          color: [party.Color.fromHex("#0F3D70"), party.Color.fromHex("#000000"), party.Color.fromHex("#ffffff"), party.Color.fromHex("#cccccc")],
-          speed: 600,
-        });
-
-        var score = parseInt((($.attempts - $.mistakes) / $.attempts) * 100, 10);
-        document.getElementById('memory--end-game-score').classList.toggle('show');
-        document.getElementById('memory--end-game-score').innerHTML = 'Score: ' + score + ' / 100';
         document.getElementById('memory--end-game-modal').classList.toggle('show');
-        document.getElementById('memory--end-game-modal').classList.toggle('end');
+
       } else {
         // If its just a match starting sequence
-
-        // Add the party sparkles to cards that match
-        party.sparkles(childNodes[status.args[0]], {
-          size: party.variation.range(3, 5),
-        });
-        party.sparkles(childNodes[status.args[1]], {
-          size: party.variation.range(3, 5),
-        });
 
         document.getElementById('memory--end-game-modal').classList.toggle('show');
       }
 
       // If it's a win clsoing sequence
       if (status.code == 4) {
-        // set a timer to automatically close the modal after 10 seconds and restart the game
-        resetModalTimer = setTimeout(function () {
-          document.getElementById('memory--settings-icon').click();
-          document.getElementById('memory--end-game-score').classList.toggle('show');
-          document.getElementById('memory--end-game-modal').classList.toggle('end');
-        }, 10000);
 
-        // Manually restart the game and clear the timer
+        // Display the winning message and score
         document.getElementById('memory-modal__close').addEventListener('click', function () {
-          document.getElementById('memory--settings-icon').click();
+
+          // Setup the score
+          var score = parseInt((($.attempts - $.mistakes) / $.attempts) * 100, 10);
           document.getElementById('memory--end-game-score').classList.toggle('show');
+          document.getElementById('memory--end-game-score').innerHTML = 'Score: ' + score + ' / 100';
+
+          // Add the end game glass
           document.getElementById('memory--end-game-modal').classList.toggle('end');
 
-          clearTimeout(resetModalTimer);
+          // Confetti explosion for winning
+          party.settings.gravity = 400;
+          party.confetti(document.querySelector("body"), {
+            count: party.variation.range(800, 1000),
+            spread: party.variation.range(50, 100),
+            size: party.variation.range(3, 5),
+            color: [party.Color.fromHex("#0F3D70"), party.Color.fromHex("#000000"), party.Color.fromHex("#ffffff"), party.Color.fromHex("#cccccc")],
+            speed: 600,
+          });
+
+          // Change the message
+          document.getElementById('memory--end-game-message').innerHTML = winMessage(score);
+          // set a timer to automatically close the modal after 10 seconds and restart the game
+          resetModalTimer = setTimeout(function () {
+            document.getElementById('memory--settings-icon').click();
+            document.getElementById('memory--end-game-score').classList.toggle('show');
+            document.getElementById('memory--end-game-modal').classList.toggle('end');
+          }, 10000);
+
+
+          // Manually reset the game rather than waiting for the timer to expire
+          document.getElementById('memory-modal__close').addEventListener('click', function () {
+            document.getElementById('memory--settings-icon').click();
+            document.getElementById('memory--end-game-score').classList.toggle('show');
+            document.getElementById('memory--end-game-modal').classList.toggle('end');
+
+            clearTimeout(resetModalTimer);
+          });
         });
+
       } else {
-        // If its just a match  closing sequence
+        // If its just a match closing sequence
         document.getElementById('memory-modal__close').addEventListener('click', function () {
           document.getElementById('memory--end-game-modal').classList.toggle('show');
         });
@@ -171,6 +184,24 @@
         break;
     }
     return message;
+  }
+
+  var winMessage = function (score) {
+    const html = '<div class="memory-modal auto">' +
+      '<div class="memory-modal__content">' +
+      '<header class="memory-modal__header">' +
+      '<h1 class="memory-modal__title">You\'re a winner</h1>' +
+      '</header>' +
+      '<div class="memory-modal__body">' +
+      '<p class="memory-modal__text">' +
+      getEndGameMessage(score) +
+      '</p>' +
+      '</div>' +
+      '<a href="#" id="memory-modal__close" class="memory-modal__close--js">&times;</a>' +
+      '</div>' +
+      '</div>';
+
+    return html;
   }
 
   var autoLoanMessage = function () {

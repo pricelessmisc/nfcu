@@ -1,5 +1,6 @@
-const cacheNFCU = 'nfcu-cache-v2';   
+const cacheNFCU = 'nfcu-cache-v3';   
 
+// set the cache up
 self.addEventListener("install", function(event) {
     event.waitUntil(
         caches.open(cacheNFCU).then(function(cache) {
@@ -35,6 +36,7 @@ self.addEventListener("install", function(event) {
     );
     });
         
+    // get the new cache if it exists
 self.addEventListener("fetch", function(event) {
     event.respondWith(
         caches.match(event.request).then(function(response) {
@@ -43,6 +45,7 @@ self.addEventListener("fetch", function(event) {
     );
 });
 
+// Remove old caches
 self.addEventListener("activate", function(event) {
     event.waitUntil(
         caches.keys().then(function(cacheNames) {
