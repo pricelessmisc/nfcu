@@ -25,7 +25,7 @@
   // from?
   var imagesAvailable = 4;
 
-  // Sets the modal timer so we can clear it globally
+  // Allows timer to be accessible from other functions
   var resetModalTimer;
 
   /************ End hard coded settings ******************/
@@ -43,6 +43,14 @@
   var reset = document.getElementById('memory--settings-reset');
   var handleSettingsSubmission = function (event) {
     event.preventDefault();
+
+    // Handle close modal window with button
+    document.getElementById('memory--end-game-modal').addEventListener('click', function () {
+      document.getElementById('memory--end-game-modal').classList.toggle('show');
+    });
+
+    // Removes the event listener for closing modal window @see modalClose()
+    document.removeEventListener("click", event => modalClose( event ));
 
     // var selectWidget = document.getElementById("memory--settings-grid").valueOf();
     // var grid = selectWidget.options[selectWidget.selectedIndex].value;
@@ -79,9 +87,7 @@
         childNodes[status.args[0]].classList.remove('clicked');
         childNodes[status.args[1]].classList.remove('clicked');
       }.bind(status), nonMatchingCardTime);
-    }
-
-    else if (status.code == 2 || status.code == 4) {
+    }else if (status.code == 2 || status.code == 4) {
       // Add in a condition for when the cards match to display the message
 
       var childNodes = document.getElementById('memory--cards').childNodes;
@@ -91,9 +97,10 @@
 
       document.getElementById('memory--end-game-message').innerHTML = message;
 
-      // If its a win starting sequence
+      // Displays the modal window
       if (status.code == 4) {
 
+        // Start the confettif for the win
         party.settings.gravity = 400;
         party.confetti(document.querySelector("body"), {
           count: party.variation.range(800, 1000),
@@ -109,8 +116,6 @@
         document.getElementById('memory--end-game-modal').classList.toggle('show');
         document.getElementById('memory--end-game-modal').classList.toggle('end');
       } else {
-        // If its just a match starting sequence
-
         // Add the party sparkles to cards that match
         party.sparkles(childNodes[status.args[0]], {
           size: party.variation.range(3, 5),
@@ -122,32 +127,47 @@
         document.getElementById('memory--end-game-modal').classList.toggle('show');
       }
 
-      // If it's a win clsoing sequence
+      // Hides the modal windows
+      // If it's a win
       if (status.code == 4) {
-        // set a timer to automatically close the modal after 10 seconds and restart the game
+
+        // Set a time out to allow the modal to open first then reset the game by clicking anywhere on the screen
+        setTimeout(() => {
+          document.getElementById('memory-modal__close').addEventListener("click", event => modalClose( event, status ));
+        }, 1000);
+
+        // Automatically restart the game if nothing is clicked
         resetModalTimer = setTimeout(function () {
           document.getElementById('memory--settings-icon').click();
-          document.getElementById('memory--end-game-score').classList.toggle('show');
-          document.getElementById('memory--end-game-modal').classList.toggle('end');
         }, 10000);
-
-        // Manually restart the game and clear the timer
-        document.getElementById('memory-modal__close').addEventListener('click', function () {
-          document.getElementById('memory--settings-icon').click();
-          document.getElementById('memory--end-game-score').classList.toggle('show');
-          document.getElementById('memory--end-game-modal').classList.toggle('end');
-
-          clearTimeout(resetModalTimer);
-        });
       } else {
-        // If its just a match  closing sequence
-        document.getElementById('memory-modal__close').addEventListener('click', function () {
-          document.getElementById('memory--end-game-modal').classList.toggle('show');
-        });
+
+        // Handle close modal window with click outside of element
+
+        // Set a time out to allow the modal to open first
+        setTimeout(() => {
+          document.getElementById('memory-modal__close').addEventListener("click", event => modalClose( event, status ));
+        }, 1000);
       }
     }
 
   };
+
+  // Handle clicking outside of modal window to close it
+  var modalClose = function (event, status) {
+
+    if ( document.getElementById('memory--end-game-modal').classList.contains('end') && status.code == 4 ) {
+      clearTimeout(resetEndGameTimer);
+      document.getElementById('memory--end-game-modal').classList.remove('show');
+      document.getElementById('memory--end-game-modal').classList.$(selector).remove();('end');
+      document.getElementById('memory--settings-icon').click();
+    }
+
+    else if (document.getElementById('memory--end-game-modal').classList.contains('show')) {
+      document.getElementById('memory--end-game-modal').classList.remove('show');
+    }
+
+  }
 
   var getMatchMessage = function (childNodes, status) {
     // Get one of the matching card elements

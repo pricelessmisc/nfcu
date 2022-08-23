@@ -1,0 +1,23 @@
+{
+    "name": "Navy Federal Credit Union Memory Game",
+    "short_name": "NFCU Memory Game",
+    "start_url": ".",
+    "id": "index.html",
+    "background_color": "#0F3D70",
+    "theme_color": "#0F3D70",
+    "display": "standalone",
+    "orientation": "landscape",
+    "icons": [
+        {
+            "src": "/images/apple-touch-icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icon512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

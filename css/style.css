@@ -166,9 +166,11 @@ sup {
 }
 
 #memory--end-game-modal .wrapper .memory-modal__content {
+  position: relative;
   display: block;
   padding: 30px;
   background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
 }
 
 #memory--end-game-modal.end .wrapper .memory-modal__content {
@@ -249,6 +251,20 @@ sup {
   align-items: center;
   z-index: 4;
   background: #0F3D70;
+}
+
+.memory-modal__close--js {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 5;
+  color: #0F3D70;
+  font-size: 30px;
+  text-decoration: none;
 }
 
 .logo__start {
