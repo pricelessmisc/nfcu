@@ -513,3 +513,6 @@ sup {
 .back.card-4 {
   background-image: url(../images/nfcu/mobile.jpg);
 }
+.memory-modal__image-container {
+  text-align: left;
+}

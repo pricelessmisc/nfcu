@@ -259,7 +259,8 @@
       '<div class="memory-modal__body">' +
       '<p class="memory-modal__text">' +
       'Way to go! Whether you are just starting out on your financial journey or a seasoned-veteran, MakingCents offers educational information on buying a car or home, saving and paying for college, investing, managing credit cards and more.</p>' +
-      '<p class="memory-modal__small-text">Insured by NCUA: <br>Equal Housing Lender (or EHL bug)</p>' +
+      '<p class="memory-modal__small-text">Insured by NCUA</p>' +
+      '<p class="memory-modal__image-container"><img src="../images/ehl_logo_bw.jpg" class="memory-modal__image"/></p>' +
       '</div>' +
       '<a href="#" id="memory-modal__close" class="memory-modal__close--js">&times;</a>' +
       '</div>' +
