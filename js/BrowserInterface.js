@@ -190,7 +190,7 @@
     const html = '<div class="memory-modal auto">' +
       '<div class="memory-modal__content">' +
       '<header class="memory-modal__header">' +
-      '<h1 class="memory-modal__title">You\'re a winner</h1>' +
+      '<h1 class="memory-modal__title">Great Job!</h1>' +
       '</header>' +
       '<div class="memory-modal__body">' +
       '<p class="memory-modal__text">' +
@@ -218,6 +218,7 @@
       '<li class="memory-modal__list-item">100% financing, including taxes, tags and title</li>' +
       '<li class="memory-modal__list-item">an easy and convenient application process</li>' +
       '</ul>' +
+      '<p class="memory-modal__small-text">Insured by NCUA</p>' +
       '</div>' +
       '<a href="#" id="memory-modal__close" class="memory-modal__close--js">&times;</a>' +
       '</div>' +
@@ -258,7 +259,7 @@
       '<div class="memory-modal__body">' +
       '<p class="memory-modal__text">' +
       'Way to go! Whether you are just starting out on your financial journey or a seasoned-veteran, MakingCents offers educational information on buying a car or home, saving and paying for college, investing, managing credit cards and more.</p>' +
-      '<p class="memory-modal__small-text">Disclosure: <br>Equal Housing Lender (or EHL bug)</p>' +
+      '<p class="memory-modal__small-text">Insured by NCUA: <br>Equal Housing Lender (or EHL bug)</p>' +
       '</div>' +
       '<a href="#" id="memory-modal__close" class="memory-modal__close--js">&times;</a>' +
       '</div>' +
@@ -281,7 +282,7 @@
       '<li class="memory-modal__list-item">24/7 help from our U.S.-based member service team</li>' +
       '<li class="memory-modal__list-item">digital banking with free Bill Pay<sup>2</sup></li>' +
       '</ul>' +
-      '<p class="memory-modal__small-text">Disclosures: <br><sup>1</sup> Message data rates may apply. Visit navyfederal.org for more information. <br><sup>2</sup> The Bill Pay service is provided to you at no cost. The charge for the optional Bill Pay Rush Delivery service is specified in Navy Federal’s Schedule of Fees and Charges, which can be found at navyfederal.org.' +
+      '<p class="memory-modal__small-text">Insured by NCUA: <br><sup>1</sup> Message data rates may apply. Visit navyfederal.org for more information. <br><sup>2</sup> The Bill Pay service is provided to you at no cost. The charge for the optional Bill Pay Rush Delivery service is specified in Navy Federal’s Schedule of Fees and Charges, which can be found at navyfederal.org.' +
       '</p>' +
       '</div>' +
       '<a href="#" id="memory-modal__close" class="memory-modal__close--js">&times;</a>' +
@@ -291,18 +292,24 @@
     return html;
   }
 
+  /**
+   * We are now only returning the single message for any score
+   * 
+   * @param {receives the score to be able to change the message according to it} score 
+   * @returns 
+   */
   var getEndGameMessage = function (score) {
-    var message = "";
+    var message = "Please speak to one of our representatives to learn more.";
 
-    if (score == 100) {
-      message = "Amazing job!"
-    } else if (score >= 70) {
-      message = "Great job!"
-    } else if (score >= 50) {
-      message = "Great job!"
-    } else {
-      message = "You can do better.";
-    }
+    // if (score == 100) {
+    //   message = "Amazing job!"
+    // } else if (score >= 70) {
+    //   message = "Great job!"
+    // } else if (score >= 50) {
+    //   message = "Great job!"
+    // } else {
+    //   message = "You can do better.";
+    // }
 
     return message;
   }
