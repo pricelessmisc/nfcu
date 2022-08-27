@@ -242,6 +242,7 @@
       '<li class="memory-modal__list-item">Zero Liability policy protection for unauthorized transactions</li>' +
       '<li class="memory-modal__list-item">reward points or cash back on select cards</li>' +
       '</ul>' +
+      '<p class="memory-modal__small-text">Insured by NCUA</p>' +
       '</div>' +
       '<a href="#" id="memory-modal__close" class="memory-modal__close--js">&times;</a>' +
       '</div>' +
