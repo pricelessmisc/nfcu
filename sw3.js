@@ -1,4 +1,4 @@
-const cacheNFCU = 'nfcu-cache-v8';   
+const cacheNFCU = 'nfcu-cache-v9';   
 
 // set the cache up
 self.addEventListener("install", function(event) {
@@ -14,9 +14,12 @@ self.addEventListener("install", function(event) {
                 "/images/nfcu/creditcard.jpg",
                 "/images/nfcu/making.jpg",
                 "/images/nfcu/mobile.jpg",
+                "/images/apple-touch-icon.png",
                 "/images/card.svg",
                 "/images/gear.png",
+                "/images/icon512.png",
                 "/images/logo.png.webp",
+                "/images/ehl_logo_bw.jpg",
                 "/images/apple-touch-icon.png",
                 "/fonts/gotham-black-webfont.eot",
                 "/fonts/gotham-black-webfont.woff",
