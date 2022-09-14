@@ -14,7 +14,6 @@ self.addEventListener("install", function(event) {
                 "/images/nfcu/creditcard.jpg",
                 "/images/nfcu/making.jpg",
                 "/images/nfcu/mobile.jpg",
-                "/images/apple-touch-icon.png",
                 "/images/card.svg",
                 "/images/gear.png",
                 "/images/icon512.png",
