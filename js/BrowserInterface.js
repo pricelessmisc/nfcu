@@ -48,6 +48,18 @@
     // var grid = selectWidget.options[selectWidget.selectedIndex].value;
     var grid = "2x3"; // Manuall set for now as we have removed the options to choose.
 
+    // browser window width and height
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    // if height is greater than width, we are in portrait mode
+    var isPortrait = height > width;
+
+    // if isPortrait is true then set grid to 3x2
+    if (isPortrait) {
+      grid = "3x2";
+    }
+
     var gridValues = grid.split('x');
     var cards = $.initialize(Number(gridValues[0]), Number(gridValues[1]), imagesAvailable);
 

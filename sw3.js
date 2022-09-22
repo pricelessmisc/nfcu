@@ -1,4 +1,4 @@
-const cacheNFCU = 'nfcu-cache-v9';   
+const cacheNFCU = 'nfcu-cache-v10';   
 
 // set the cache up
 self.addEventListener("install", function(event) {
