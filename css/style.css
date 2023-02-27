@@ -209,7 +209,7 @@ sup {
 }
 
 #memory--end-game-modal .wrapper .memory-modal.creditcard {
-  background: url('../images/nfcu/creditcard.jpg' ) no-repeat center center;
+  background: url('../images/nfcu/creditcard2.jpg' ) no-repeat center center;
   background-size: cover;
 }
 
@@ -503,7 +503,7 @@ sup {
 }
 
 .back.card-2 {
-  background-image: url(../images/nfcu/creditcard.jpg);
+  background-image: url(../images/nfcu/creditcard2.jpg);
 }
 
 .back.card-3 {
