@@ -209,12 +209,12 @@ sup {
 }
 
 #memory--end-game-modal .wrapper .memory-modal.creditcard {
-  background: url('../images/nfcu/creditcard2.jpg' ) no-repeat center center;
+  background: url('../images/nfcu/creditcard.jpg' ) no-repeat center center;
   background-size: cover;
 }
 
 #memory--end-game-modal .wrapper .memory-modal.makingcents {
-  background: url('../images/nfcu/making.jpg' ) no-repeat center center;
+  background: url('../images/nfcu/making2.jpg' ) no-repeat center center;
   background-size: cover;
 }
 
@@ -503,11 +503,11 @@ sup {
 }
 
 .back.card-2 {
-  background-image: url(../images/nfcu/creditcard2.jpg);
+  background-image: url(../images/nfcu/creditcard.jpg);
 }
 
 .back.card-3 {
-  background-image: url(../images/nfcu/making.jpg);
+  background-image: url(../images/nfcu/making2.jpg);
 }
 
 .back.card-4 {

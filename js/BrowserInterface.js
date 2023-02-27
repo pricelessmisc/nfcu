@@ -10,8 +10,8 @@
  * Card values
  * 
  * card-1 = auto.jpg
- * card-2 = creditcard2.jpg
- * card-3 = making.jpg
+ * card-2 = creditcard.jpg
+ * card-3 = making2.jpg
  * card-4 = mobile.jpg
  */
 (function ($) {
